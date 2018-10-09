@@ -77,6 +77,7 @@ export default {
     flex-direction: column;
     text-align: left;
     border: 1px solid rgba(0, 0, 0, 0.041);
+    background: #343433;
   }
   .card:hover{
     box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
@@ -96,6 +97,7 @@ export default {
   .description, .user_name, .sum_comment {
     min-height: 100px;
     max-height: 100px;
+    color: white;
   }
   .user_name, .sum_comment{
     align-items: center;
@@ -104,14 +106,14 @@ export default {
   }
   .user_name{
     cursor: pointer;
+    font-size: 23px;
   }
   .highlight{
-    color: #333;
+    color: #e4e4d9;
   }
   a{
-    color: black;
+    color: white;
     transition: .2s;
-    text-decoration: unset;
   }
   a:hover{
     color: #1c92d2;

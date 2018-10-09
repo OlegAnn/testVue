@@ -4,7 +4,7 @@
     <div class="wrap">
       <div v-for="(item, index) in postList" :key="index" class="postlist">
           <div><span>Number post</span>{{item.id}}</div>
-          <div><span>Name Author</span>{{findUserName(item.userId)}}</div>
+          <div class="name"><span>Name Author</span>{{findUserName(item.userId)}}</div>
           <div><span>Title post</span>{{item.title}}</div>
           <div><span>Body post</span>{{item.body}}</div>
       </div>
@@ -63,6 +63,7 @@ export default {
   flex-direction: column;
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.041);
+  background: #343433;
 }
 .postlist div{
   margin: 10px 0;
@@ -71,9 +72,14 @@ export default {
   text-align: center;
   min-height: 70px;
   max-height: 70px;
+  color: white;
 }
 .postlist div span{
   margin-bottom: 15px;
   text-decoration: underline;
+  color: #e4e4d9;
+}
+.name{
+  font-size: 21px;
 }
 </style>

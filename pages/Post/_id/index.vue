@@ -85,8 +85,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.041);
     box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    background: #343433;
+    border: 1px solid rgba(255, 255, 255, 0.945);
+    border-radius: 10px;
 }
 .commentWrap{
     max-height: 0;
@@ -97,8 +99,9 @@ export default {
 .active{
     max-height: 2000px;
 }
-.header, .description, .user_name{
+.header, .description, .user_name, .sum_comment{
     border-bottom: 1px solid rgba(0, 0, 0, 0.041);
+    color: white;
 }
 .description{
     margin-bottom: 15px;
@@ -117,6 +120,10 @@ export default {
     cursor: pointer;
     text-decoration: underline;
     transition: .4s;
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(238, 226, 226, 0.26);
+    border-radius: 10px;
 }
 .toggle:hover{
     color: #1c92d2;
@@ -126,6 +133,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 .comment div::first-letter{
     text-transform: capitalize;
@@ -137,11 +145,9 @@ export default {
 .comment:hover{
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
-.comment:nth-child(odd){
-    background: rgba(0, 0, 0, 0.041);
-}
 .comment div span{
     margin-bottom: 15px;
     text-decoration: underline;
+    color: #e4e4d9;
 }
 </style>
