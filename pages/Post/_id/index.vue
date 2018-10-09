@@ -70,9 +70,9 @@ export default {
     },
     created () {
         this.takePost()
-    },
-    beforeUpdate() {
         this.getComments ()
+    },
+    updated() {
         this.findUserName(this.post.userId)
     },
 }
