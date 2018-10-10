@@ -2,21 +2,20 @@
   <div class="container">
     <h1>Post list API</h1>
     <div class="wrapper">
-      <div class="cardWrapper">
+      <main class="cardWrapper">
         <div class="card" v-for="(item, index) in this.$store.state.posts" :key="index">
           <nuxt-link :to="{path: '/post/' + item.id}">
-            <h1 class="header" :title='"Get detailed information of the post " + findUserName(item.userId)'>{{item.title}}</h1>
+            <h2 class="header" :title='"Get detailed information of the post " + findUserName(item.userId)'>{{item.title}}</h2>
           </nuxt-link>
-          <div class="description">{{item.body}}</div>
+          <div class="description"><p>{{item.body}}</p></div>
           <nuxt-link :to="{path: '/postlist/' + item.userId}">
             <div class="user_name" :title='"Get all posts created by this user " + findUserName(item.userId)'> 
-              <span class="highlight">Name author : </span>
-              {{findUserName(item.userId)}}
+              <h3>Name author :&nbsp;{{findUserName(item.userId)}}</h3>
             </div>
           </nuxt-link>
-          <div class="sum_comment"><span class="highlight">Amount of comments  &nbsp;</span>{{sumPostComments(item.id)}}</div>
+          <div class="sum_comment"><span class="highlight">Amount of comments  &nbsp;</span><p>{{sumPostComments(item.id)}}</p></div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
 </template>

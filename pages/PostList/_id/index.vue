@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <h1>All posts of user</h1>
-    <div class="wrap">
-      <div v-for="(item, index) in postList" :key="index" class="postlist">
-          <div><span>Number post</span>{{item.id}}</div>
-          <div class="name"><span>Name Author</span>{{findUserName(item.userId)}}</div>
-          <div><span>Title post</span>{{item.title}}</div>
-          <div><span>Body post</span>{{item.body}}</div>
-      </div>
-    </div>
+    <main class="wrap">
+      <section v-for="(item, index) in postList" :key="index" class="postlist">
+          <div><span>Number post</span><h2>{{item.id}}</h2></div>
+          <div class="name"><span>Name Author</span><h3>{{findUserName(item.userId)}}</h3></div>
+          <div><span>Title post</span><h3>{{item.title}}</h3></div>
+          <div><span>Body post</span><p>{{item.body}}</p></div>
+      </section>
+    </main>
   </div>
 </template>
 <script>
@@ -53,8 +53,8 @@ export default {
 .postlist{
   max-width: 320px;
   min-width: 320px;
-  min-height: 460px;
-  max-height: 460px;
+  min-height: 560px;
+  max-height: 560px;
   margin-bottom: 5%;
   border-radius: 2%;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
@@ -66,7 +66,7 @@ export default {
   background: #343433;
 }
 .postlist div{
-  margin: 10px 0;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
