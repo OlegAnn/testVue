@@ -20,12 +20,13 @@
   </div>
 </template>
 <script>
+import { mapActions} from 'vuex'
 export default {
   name: 'index',
   data: () => ({
   }),
-  middleware: ['index', 'users', 'comments'],
   methods: {
+    ...mapActions(['getUsers', 'getComments', 'getPosts']),
     findUserName (id) {
       let name = ''
       this.$store.state.users.map(item => {
@@ -45,7 +46,10 @@ export default {
       return sumComments
     }
   },
-  created() {
+  async created() {
+    this.getUsers()
+    this.getPosts()
+    this.getComments()
   }
 }
 </script>

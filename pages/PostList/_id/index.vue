@@ -3,24 +3,41 @@
     <h1>All posts of user</h1>
     <main class="wrap">
       <section v-for="(item, index) in postList" :key="index" class="postlist">
-          <div><span>Number post</span><h2>{{item.id}}</h2></div>
-          <div class="name"><span>Name Author</span><h3>{{findUserName(item.userId)}}</h3></div>
-          <div><span>Title post</span><h3>{{item.title}}</h3></div>
-          <div><span>Body post</span><p>{{item.body}}</p></div>
+        <!-- <label>km: <input type="text" v-model="km2"></label><br/>
+        <label>cm: <input type="text" v-model="cm"></label><br/>
+        <label>mm: <input type="text" v-model="mm"></label><br/> -->
+        <div><span>Number post</span><h2>{{item.id}}</h2></div>
+        <div class="name"><span>Name Author</span><h3>{{findUserName(item.userId)}}</h3></div>
+        <div><span>Title post</span><h3>{{item.title}}</h3></div>
+        <div><span>Body post</span><p>{{item.body}}</p></div>
       </section>
     </main>
   </div>
 </template>
 <script>
 import {getAllPostsUser} from '@/api/getAllPostsUser'
+import { mapActions, mapGetters } from 'vuex'
 export default {
     name: 'PostList',
-    middleware: ['users'],
     data: () => ({
         postList: [],
-        userName: ''
+        userName: '',
+        km2: 0,
+        cm: 0,
+        mm: 0,
+        user: '',
+        id: 0
     }),
+    computed: {
+      ...mapGetters([
+        'findUser'
+      ]),
+      ser() {
+        return this.findUser(10)
+      }
+    },
     methods: {
+      ...mapActions(['getUsers']),
       findUserName (id) {
         let name = ''
         this.$store.state.users.map(item => {
@@ -35,9 +52,22 @@ export default {
           this.postList = this.postList.data
       }
     },
-    created () {
+    async created () {
+      this.getUsers()
       this.takePostList()
-    }
+    },
+    watch: {
+      km2: function (val) {
+        this.km2 = val
+        this.cm = val * 100000
+        this.mm = val * 1000000
+      },
+      cm (val) {
+        this.km2 = val / 100000
+        this.cm = val
+        this.mm = val * 10
+      }
+  }
 }
 </script>
 

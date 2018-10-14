@@ -31,9 +31,9 @@
 <script>
 import {getPost} from '@/api/getPost'
 import {getCommentsById} from '@/api/getCommentsById'
+import { mapActions } from 'vuex'
 export default {
     name: 'post',
-    middleware: ['index', 'users', 'comments'],
     data: () => ({
         post: [],
         comments: [],
@@ -41,6 +41,7 @@ export default {
         userName: ''
     }),
     methods: {
+         ...mapActions(['getUsers', 'getComments', 'getPosts']),
         findUserName (id) {
         this.$store.state.users.map(item => {
             if (id === item.id) {
@@ -51,7 +52,7 @@ export default {
         },
         sumPostComments (id) {
         let sumComments = 0;
-        this.$store.state.comments.map(item => {
+        this.comments.map(item => {
             if(id === item.postId) {
             sumComments++
             }
